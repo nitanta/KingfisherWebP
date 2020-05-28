@@ -271,7 +271,7 @@ CGImageRef WebPImageCreateWithData(CFDataRef webpData) {
 CFDataRef WebPDataCreateWithImage(CGImageRef image) {
     WebPConfig config;
     WebPConfigInit(&config);
-    WebPConfigLosslessPreset(&config, 0);
+    WebPConfigLosslessPreset(&config, -1);
     
     WebPPicture picture;
     WebPPictureInit(&picture);
