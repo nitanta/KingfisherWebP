@@ -9,14 +9,16 @@
 import Kingfisher
 
 public struct WebPSerializer: CacheSerializer {
+    
     public static let `default` = WebPSerializer()
+    public var loss: Bool = true
     private init() {}
 
     public func data(with image: KFCrossPlatformImage, original: Data?) -> Data? {
         if let original = original, !original.isWebPFormat {
             return DefaultCacheSerializer.default.data(with: image, original: original)
         } else {
-            return image.kf.normalized.kf.webpRepresentation()
+            return image.kf.normalized.kf.webpRepresentation(loss: loss)
         }
     }
 

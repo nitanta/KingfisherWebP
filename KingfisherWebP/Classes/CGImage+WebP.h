@@ -13,7 +13,7 @@ CF_ASSUME_NONNULL_BEGIN
 
 // still image
 CGImageRef __nullable WebPImageCreateWithData(CFDataRef webpData);
-CFDataRef __nullable WebPDataCreateWithImage(CGImageRef image);
+CFDataRef __nullable WebPDataCreateWithImage(CGImageRef image, BOOL loss);
 
 // animated image
 CG_EXTERN const CFStringRef kWebPAnimatedImageDuration;

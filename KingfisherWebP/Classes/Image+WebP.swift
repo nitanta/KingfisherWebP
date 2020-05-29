@@ -11,12 +11,12 @@ import CoreGraphics
 
 // MARK: - Image Representation
 extension KingfisherWrapper where Base: KFCrossPlatformImage {
-    public func webpRepresentation() -> Data? {
+    public func webpRepresentation(loss: Bool) -> Data? {
         if let result = animatedWebPRepresentation() {
             return result
         }
         if let cgImage = base.cgImage {
-            return WebPDataCreateWithImage(cgImage) as Data?
+            return WebPDataCreateWithImage(cgImage, loss) as Data?
         }
         return nil
     }
